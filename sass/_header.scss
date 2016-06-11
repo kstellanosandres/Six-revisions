@@ -1,0 +1,6 @@
+.logo {
+    @include to(tablet) {
+        display: block;
+        margin: 0 auto;
+    }
+}

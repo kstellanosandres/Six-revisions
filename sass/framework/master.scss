@@ -1,0 +1,21 @@
+$max-width: 1024px;
+$padding: 15px;
+
+$breakpoints: (
+  movil  : 480px,
+  tablet : 768px,
+  web    : 1024px,
+  hd     : 1400px
+);
+
+$fracciones: (
+  tercios : 3,
+  sextos  : 6,
+  octavos : 8
+);
+
+@import 'base';
+@import 'grid';
+@import 'mixins';
+@import 'modulos';
+@import 'icon-fonts';

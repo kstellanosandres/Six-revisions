@@ -1,0 +1,153 @@
+.content {
+    padding: 1.5em .5em 2em;
+    background: url('../img/bg/bg-content.png');
+    box-shadow: 0 -5px 3px #C4C2AF inset;
+    @include to(tablet) {
+        padding-top: 2.5em;
+    }
+}
+
+.banner {
+    overflow: hidden;
+    position: relative;
+    padding: 1.5em;
+    background: url('../img/bg/bg-banner.png');
+
+    @include to(web) {
+        text-align: center;
+    }
+
+    li {
+        margin-bottom: .7em;
+    }
+
+    a {
+        text-decoration: underline;
+        color: #C5C5C5;
+    }
+
+    &__text {
+        @include from(web) {
+            position: absolute;
+            top: 50%;
+            left: 4em;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__title {
+        margin-bottom: 1.5em;
+    }
+
+    &__list {
+        list-style: none;
+        margin-bottom: 2em;
+        @include to(web) {
+            padding-left: 0;
+        }
+    }
+
+    &__img {
+        @include from(web) {
+            float: right;
+        }
+    }
+}
+
+.content,
+.banner {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.videos {
+    @include to(tablet) {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: underline;
+        color: #444;
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 232px;
+        height: 173px;
+        max-width: 100%;
+        font-size: 4em;
+        background: url('../img/video.png');
+        background-repeat: no-repeat;
+        color: rgba(#fff, .5);
+        @include to(tablet) {
+            margin: 0 auto;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: .7em;
+    }
+}
+
+.blog {
+    @include to(tablet) {
+        text-align: center;
+    }
+
+    &, a {
+        color: #444;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    &__title {
+        margin-bottom: 1.3em;
+    }
+}
+
+.connect {
+    .group {
+        display: table;
+        margin: 0 auto;
+        overflow: hidden;
+        margin-bottom: 1.2em;
+    }
+
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        line-height: 3;
+        background: #414141;
+        color: #fff;
+        border-radius: 3px;
+
+        &:before {
+            top: 0;
+            font-size: .9em;
+        }
+
+        &:hover {
+            background: rgba(#000, .8);
+        }
+
+        &:first-child {
+            margin-right: 1.5em;
+        }
+    }
+
+    &__title {
+        margin-bottom: 1.5em;
+        text-align: center;
+    }
+}

@@ -1,0 +1,25 @@
+#menu-principal {
+    margin-bottom: .8em;
+    @include from(web) {
+        margin-bottom: 0;
+    }
+    .menu {
+        background: rgba(darken($color-1, 10%), .5);
+        @include from(web) {
+            background: none;
+        }
+
+        a{
+            text-transform: uppercase;
+            color: $color-2;
+            @include from(web) {
+                padding-top: 3em;
+                padding-bottom: .5em;
+            }
+        }
+    }
+}
+
+.toggle-menu {
+    background: rgba(darken($color-1, 20%), .5);
+}

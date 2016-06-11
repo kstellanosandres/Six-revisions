@@ -1,0 +1,105 @@
+@function item-width($width, $separation) {
+    @return calc(#{$width} - #{$separation});
+}
+
+@mixin grid($items, $columns, $separation:1em) {
+    $width: 100% / $columns;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($separation / 2);
+    margin-right: -($separation / 2);
+    //Por si el contenedor es un ul.
+    @if $items == li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            margin-left: 0;
+        }
+    }
+    & > #{$items}, & > .#{$items} {
+        width: item-width($width, $separation);
+        margin: $separation / 2;
+    }
+}
+
+@mixin to($size) {
+    @if map-has-key($breakpoints, $size) {
+        @media screen and (max-width: map-get($breakpoints, $size) - 1) {
+            @content;
+        }
+    }@else {
+        @media screen and (max-width: $size) {
+            @content;
+        }
+    }
+}
+
+@mixin from($size) {
+    @if map-has-key($breakpoints, $size) {
+        @media screen and (min-width: map-get($breakpoints, $size)) {
+            @content;
+        }
+    }@else {
+        @media screen and (min-width: $size) {
+            @content;
+        }
+    }
+}
+
+@mixin from-to($from, $to) {
+    @if map-has-key($breakpoints, $from) and map-has-key($breakpoints, $to) {
+        @media screen and (min-width: map-get($breakpoints, $from)) and (max-width: map-get($breakpoints, $to) - 1) {
+            @content;
+        }
+    }@else if map-has-key($breakpoints, $from) and not map-has-key($breakpoints, $to) {
+        @media screen and (min-width: map-get($breakpoints, $from)) and (max-width: $to) {
+            @content;
+        }
+    }@else if not map-has-key($breakpoints, $from) and map-has-key($breakpoints, $to) {
+        @media screen and (min-width: $from) and (max-width: map-get($breakpoints, $to) - 1) {
+            @content;
+        }
+    }@else {
+        @media screen and (min-width: $from) and (max-width: $to) {
+            @content;
+        }
+    }
+}
+
+@mixin proportion($horizontal, $vertical, $width:100%) {
+    width: $width;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: $width * ($vertical / $horizontal);
+}
+
+@mixin clean {
+    &:before, &:after {
+        content: '';
+        width: 100%;
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin button($bg-color: #ddd, $front-color: #333, $style: default) {
+    display: inline-block;
+    line-height: 2.5em;
+    background: $bg-color;
+    color: $front-color;
+    padding: 0 1.5em;
+    cursor: pointer;
+    margin-bottom: 1em;
+    &:hover {
+        background: darken($bg-color, 5%);
+    }
+    &:active {
+        transform: scale(.97);
+    }
+    @if($style == radius) {
+        border-radius: .25em
+    }@else if($style == round) {
+        border-radius: 1.25em;
+    }
+}

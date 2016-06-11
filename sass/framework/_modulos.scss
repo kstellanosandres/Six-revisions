@@ -1,0 +1,161 @@
+.menu {
+    display: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @include from(web) {
+        display: flex !important;
+    }
+
+    li {
+        border-bottom: 1px solid rgba(#fff, .2);
+        &:last-child {
+            border: none;
+        }
+        @include from(web) {
+            flex: auto;
+            text-align: center;
+        }
+    }
+
+    a {
+        display: block;
+        line-height: 3;
+        padding-left: 1em;
+        font-size: .9em;
+        font-weight: bold;
+        text-decoration: none;
+        color: #eee;
+        @include from(web) {
+            padding-left: 0;
+        }
+        &:hover {
+            background: rgba(#FBF7F0, .7);
+        }
+    }
+}
+
+.toggle-menu {
+    padding-left: .6em;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.7;
+    color: #fff;
+    cursor: pointer;
+    @include from(web) {
+        display: none;
+    }
+}
+
+.abcenter {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.video {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+
+    > iframe, > object, > video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.main-center {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-main-center {
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.main-start {
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-main-start {
+      justify-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.main-end {
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-main-end {
+      justify-content: flex-end;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Alineación en el cross axis
+.cross-start {
+  align-items: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-cross-start {
+      align-items: flex-start;
+      align-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.cross-center {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-cross-center {
+      align-items: center;
+      align-content: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+.cross-end {
+  align-items: flex-end;
+  align-content: flex-end;
+}
+@each $size, $screen-size in $breakpoints {
+  @media all and (min-width: $screen-size){
+    .#{$size}-cross-end {
+      align-items: flex-end;
+      align-content: flex-end;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

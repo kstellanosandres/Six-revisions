@@ -1,0 +1,9 @@
+.container
+    .item.web-45
+        img(src="img/logo.png").logo
+    .item.web-55.no-padding
+        nav#menu-principal
+            .toggle-menu.icon-bars
+            ul.menu
+                each item in ['News', 'Songs', 'Photos', 'Videos', 'Tours & Events']
+                    li: a(href="#") #{item}
